@@ -20,7 +20,7 @@ class ModuleInfos:
 
 
 def execute(value: str):
-    json_data = requests.get("https://crt.sh/?dNSName=rinaorc.com&output=json").json()
+    json_data = requests.get(f"https://crt.sh/?dNSName={value}&output=json").json()
 
     data = " ".join(
         map(
