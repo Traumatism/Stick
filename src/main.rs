@@ -9,6 +9,7 @@ use types::match_types;
 
 use clap::Parser;
 use std::io::Result;
+use tui::boxify;
 
 #[derive(Parser, Debug)]
 struct Cli {
