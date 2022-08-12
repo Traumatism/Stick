@@ -6,20 +6,7 @@ pub(crate) use pyo3::{
 use serde_derive::{Deserialize, Serialize};
 use std::fs;
 
-#[derive(Debug, Serialize, Deserialize)]
-struct ModulesList {
-    modules: Vec<String>,
-}
-
-impl ModulesList {
-    pub fn load() -> Self {
-        let content = fs::read_to_string("modules.json").unwrap();
-        let data: ModulesList = serde_json::from_str(&content).unwrap();
-
-        data
-    }
-}
-
+/// Module structure
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Module {
     pub file_path: String,
@@ -30,6 +17,7 @@ pub struct Module {
 }
 
 impl Module {
+    /// Run the module
     pub fn execute(&self, target: &str) {
         let _ = Python::with_gil(|py| -> PyResult<()> {
             let content = fs::read_to_string(format!("{}.py", self.file_path))?;
@@ -41,11 +29,11 @@ impl Module {
             )?;
 
             let output = module
-                .getattr("execute")?
-                .call1(PyTuple::new(py, &[target]))?
-                .to_string();
+                .getattr("execute")? // Grab the execute() function
+                .call1(PyTuple::new(py, &[target]))? // Call it with the target as arguments
+                .to_string(); // Grab the output JSON data as string
 
-            println!("{}", Results::load(output).render(&self.name));
+            println!("{}", Results::load(output).render(&self.name)); // Parse the output and display it
 
             Ok(())
         })
@@ -53,12 +41,30 @@ impl Module {
     }
 }
 
+/// List of modules paths
+#[derive(Debug, Serialize, Deserialize)]
+struct ModulesList {
+    modules: Vec<String>,
+}
+
+impl ModulesList {
+    /// Load modules list from 'modules.json'
+    pub fn load() -> Self {
+        let content = fs::read_to_string("modules.json").unwrap();
+        let data: ModulesList = serde_json::from_str(&content).unwrap();
+
+        data
+    }
+}
+
+/// Modules registery
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Modules {
     modules: Vec<Module>,
 }
 
 impl Modules {
+    /// Load all the modules from './modules'
     pub fn load() -> Self {
         let mut modules: Vec<Module> = Vec::new();
 
@@ -88,6 +94,7 @@ impl Modules {
         Modules { modules: modules }
     }
 
+    /// Get a module by specifing the type in the scope
     pub fn get_modules_by_type(&self, t_type: &str) -> Vec<&Module> {
         let mut results = Vec::new();
         for module in &self.modules {
