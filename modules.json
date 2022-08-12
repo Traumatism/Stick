@@ -1,0 +1,7 @@
+{
+    "modules": [
+        "modules/db_portscan",
+        "modules/certificates",
+        "modules/ipinfo"
+    ]
+}
