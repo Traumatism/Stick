@@ -2,6 +2,7 @@
     "modules": [
         "modules/db_portscan",
         "modules/certificates",
-        "modules/ipinfo"
+        "modules/ipinfo",
+        "modules/dns_resolve"
     ]
 }

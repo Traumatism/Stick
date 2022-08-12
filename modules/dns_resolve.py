@@ -1,12 +1,14 @@
 
+import contextlib
 import json
+import dns.resolver
 
 class ModuleInfos:
 
-    name = ""
-    target_types = ["ip_address"]
+    name = "dns_resolve"
+    target_types = ["domain"]
     author = "toast <toast@mailfence.com>"
-    desc = ""
+    desc = "Resolve a domain"
 
     def to_json(self) -> str:
         return json.dumps({
@@ -19,14 +21,26 @@ class ModuleInfos:
 
 
 def execute(value: str):
+
+    answers = []
+
+    with contextlib.suppress(Exception):
+        answers = dns.resolver.resolve(value, 'A')
+
     return json.dumps({
         "nodes": [
             {
-                "name": "node_name", 
+                "name": "DNS resolutions", 
                 "rows": [
-                    {"key": "name", "value": "xxx"},
-                    {"key": "name", "value": "xxx"}
+                    {"key": str(i), "value": str(r)}
+                    for i, r in enumerate(answers)
                 ]
             },
         ]
     })
+
+
+if __name__ == "__main__":
+    import rich
+    import sys
+    rich.print(execute(sys.argv[1]))

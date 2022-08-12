@@ -44,6 +44,11 @@ impl Results {
                 "-".repeat(node.name.len())
             ));
 
+            if &node.rows.len() == &0 {
+                rendered.push_str("        No results.\n");
+                continue;
+            }
+
             for row in &node.rows {
                 rendered.push_str(&format!("        {}: {}\n", row.key, row.value));
             }
