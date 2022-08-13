@@ -34,7 +34,7 @@ async fn main() -> Result<()> {
         &target
     ));
 
-    let _ = &compatible_types
+    compatible_types
         .iter()
         .for_each(|t| println!(" - {}", t.hname()));
 
