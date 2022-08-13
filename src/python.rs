@@ -1,4 +1,4 @@
-use crate::results::Results;
+use crate::{error, results::Results};
 pub(crate) use pyo3::{
     prelude::{PyModule, PyResult, Python},
     types::PyTuple,
@@ -19,7 +19,7 @@ pub struct Module {
 impl Module {
     /// Run the module
     pub fn execute(&self, target: &str) {
-        let _ = Python::with_gil(|py| -> PyResult<()> {
+        if Python::with_gil(|py| -> PyResult<()> {
             let content = fs::read_to_string(format!("{}.py", self.file_path))?;
             let module = PyModule::from_code(
                 py,
@@ -37,7 +37,10 @@ impl Module {
 
             Ok(())
         })
-        .expect(&format!("Failed to run module: {}", self.name));
+        .is_err()
+        {
+            error!(format!("Failed to run module: {}", self.name));
+        }
     }
 }
 

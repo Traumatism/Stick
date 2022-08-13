@@ -2,6 +2,7 @@ mod domain;
 mod email_address;
 mod ip_address;
 mod port;
+mod url;
 
 use crate::common::t_type::Type;
 
@@ -9,9 +10,16 @@ use domain::Domain;
 use email_address::EmailAddress;
 use ip_address::IPAddress;
 use port::Port;
+use url::Url;
 
 pub fn get_types() -> Vec<&'static dyn Type> {
-    let types: Vec<&'static dyn Type> = vec![&IPAddress {}, &Domain {}, &EmailAddress {}, &Port {}];
+    let types: Vec<&'static dyn Type> = vec![
+        &IPAddress {},
+        &Domain {},
+        &EmailAddress {},
+        &Port {},
+        &Url {},
+    ];
     types
 }
 

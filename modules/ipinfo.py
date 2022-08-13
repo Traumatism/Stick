@@ -3,7 +3,6 @@ import json
 
 
 class ModuleInfos:
-    """ Class containing module informations """
 
     name = "ipinfo"
     target_types = ["ip_address"]
