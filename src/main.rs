@@ -9,7 +9,6 @@ use types::match_types;
 
 use clap::Parser;
 use std::io::Result;
-use tui::boxify;
 
 #[derive(Parser, Debug)]
 struct Cli {
@@ -19,7 +18,6 @@ struct Cli {
 #[tokio::main]
 async fn main() -> Result<()> {
     print_banner!();
-
     let args = Cli::parse();
 
     let target = args.target;

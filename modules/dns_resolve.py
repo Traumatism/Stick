@@ -3,6 +3,7 @@ import contextlib
 import json
 import dns.resolver
 
+
 class ModuleInfos:
 
     name = "dns_resolve"

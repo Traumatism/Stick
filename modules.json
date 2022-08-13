@@ -1,8 +1,9 @@
 {
     "modules": [
         "modules/db_portscan",
-        "modules/certificates",
         "modules/ipinfo",
-        "modules/dns_resolve"
+        "modules/waybackurl_subdomains",
+        "modules/dns_resolve",
+        "modules/certificates"
     ]
 }

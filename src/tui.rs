@@ -5,9 +5,14 @@ macro_rules! print_banner {
             "{}",
             r"
 
-    Stick - OSINT tool
-
-    twitter.com/t0x0ast
+ .osintb.  
+ug-b  ount 
+yrec.      
+ 'onsca.     stick v1.0.0
+    'nnin.   
+      'gin   https://traumatism.github.io
+fose  csec   https://toast.移动
+ 'urity?'
 
         "
         )
@@ -48,40 +53,4 @@ macro_rules! error {
             White.bold().paint($content)
         )
     };
-}
-
-pub fn boxify(string: &str) -> String {
-    if !string.contains('\n') {
-        return format!(
-            "+{}+\n| {} |\n+{}+\n",
-            &"-".repeat(string.len() + 2),
-            &format!("| {} |\n", string),
-            &"-".repeat(string.len() + 2)
-        );
-    }
-
-    let lmax = string
-        .split('\n')
-        .collect::<Vec<&str>>()
-        .iter()
-        .max()
-        .unwrap()
-        .len();
-
-    print!("{}", lmax);
-
-    let mut s = String::new();
-
-    s.push_str(&format!("+{}+\n", "-".repeat(lmax + 2)));
-
-    for line in string.split('\n') {
-        s.push_str(&format!(
-            "| {}{} |\n",
-            line,
-            " ".repeat((lmax - line.len()) + 1)
-        ));
-    }
-
-    s.push_str(&format!("+{}+\n", "-".repeat(lmax + 2)));
-    s
 }

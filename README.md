@@ -2,10 +2,30 @@
 
 An OSINT tool similar as [Squiz](https://github.com/traumatism/squiz) but in... Rust !
 
-Yes... that cute crab seduced me... but i'm not quitting Python at all (at least now ^^): indeed, Stick use Python 3 as a scripting language to write modules !
+Yes... the cute crab seduced me... but i'm not quitting Python at all (at least now ^^): indeed, Stick use Python 3 as a scripting language to write modules !
 
-Note: it's still in developement, i'll update this readme file ASAP
+## Usage
 
-## Create module
+1. build it from source and move the binary to our current location
 
-`$ python3 create_module.py <name>` then edit `modules/<name>.py`
+`cargo build && mv target/debug/stick $(pwd)`
+
+2. if it's not present, create the modules folder
+
+`mkdir modules/`
+
+2. (b) create a hello world module
+
+`python3 create_module hello`
+
+3. run stick on the target of your choice
+
+`./stick 1.1.1.1`
+
+`./stick domain.tld`
+
+`./stick user@domain.tld`
+
+`./stick 1.1.1.1:80`
+
+`./stick https://1.1.1.1:80`
