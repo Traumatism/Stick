@@ -13,7 +13,7 @@ impl Type for Domain {
     }
 
     fn validate(&self, target: String) -> bool {
-        let chars = "-abcdefghijklmnopqrstwxyz123456789.";
+        let chars = "-azertyuiopqsdfghjlmwxcvbn123456789.";
 
         if !target.contains(".") || target.ends_with(".") || target.starts_with(".") {
             return false;

@@ -1,9 +1,10 @@
 {
     "modules": [
-        "modules/ipinfo",
+        "modules/dns_resolve",
         "modules/db_portscan",
-        "modules/certificates_subdomains",
+        "modules/ipinfo",
         "modules/pgp_pks_emails",
-        "modules/dns_resolve"
+        "modules/tld_scan",
+        "modules/certificates_subdomains"
     ]
 }
