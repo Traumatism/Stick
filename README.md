@@ -8,6 +8,8 @@ Since I am a brain-dead kid without any imagination, module suggestions are welc
 
 Warning: some of the modules might be sending direct requests to the target if it's a host, domain, or URL... you MUST have the target's authorization to perform a scan on their system. I am not encouraging anyone to perform illegal scans on any system!
 
+Some modules are re-written from [sn0int](https://sn0int.com).
+
 ![](./assets/mindmap-b.png)
 
 ## Usage
