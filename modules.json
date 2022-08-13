@@ -2,7 +2,6 @@
     "modules": [
         "modules/db_portscan",
         "modules/ipinfo",
-        "modules/waybackurl_subdomains",
         "modules/dns_resolve",
         "modules/certificates"
     ]
