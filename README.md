@@ -70,7 +70,10 @@ The `to_json` method is necessary for the bridge between Rust and Python, edit i
 
 Your module code will go in the `execute` function which takes a string as an argument. This string contains the target provided by the user.
 
-Note: this function is not a method of the `ModuleInfos` class.
+Notes:
+    - This function is not a method of the `ModuleInfos` class.
+    - Yes, Pythons scripts can communicate with system Python modules (httpx, rich, asyncio...)
+    - No, Python scripts do not support relative imports (`from .thirdparty import *` etc.)
 
 ```python
 def execute(target: str):
