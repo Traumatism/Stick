@@ -1,10 +1,10 @@
 mod common;
-mod python;
+mod modules;
 mod results;
 mod tui;
 mod types;
 
-use python::Modules;
+use modules::Modules;
 use types::match_types;
 
 use clap::Parser;

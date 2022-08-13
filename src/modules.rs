@@ -17,6 +17,10 @@ pub struct Module {
 }
 
 impl Module {
+    pub fn create(&self, name: &str, desc: &str, author: &str, target_types: Vec<String>) {
+        
+    }
+
     /// Run the module
     pub fn execute(&self, target: &str) {
         if Python::with_gil(|py| -> PyResult<()> {

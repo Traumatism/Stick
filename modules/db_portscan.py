@@ -1,6 +1,4 @@
-
 import json
-import socket
 import asyncio
 import typing
 
@@ -12,6 +10,7 @@ DBMS = {
     27017: "MongoDB",
 }
 
+
 class ModuleInfos:
 
     name = "db_portscan"
@@ -20,17 +19,18 @@ class ModuleInfos:
     desc = "Scan for open ports with common database engines"
 
     def to_json(self) -> str:
-        return json.dumps({
-            "name": self.name,
-            "target_types": self.target_types,
-            "author": self.author,
-            "desc": self.desc,
-            "file_path": "".join(__file__.split(".py")[:-1])
-        })
+        return json.dumps(
+            {
+                "name": self.name,
+                "target_types": self.target_types,
+                "author": self.author,
+                "desc": self.desc,
+                "file_path": "".join(__file__.split(".py")[:-1]),
+            }
+        )
 
 
 def execute(value: str):
-
     async def scan(host: str, port: int) -> typing.Tuple[str, int, bool]:
         try:
             await asyncio.wait_for(asyncio.open_connection(host, port), 3)
@@ -47,20 +47,23 @@ def execute(value: str):
 
         return await results
 
-    return json.dumps({
-        "nodes": [
-            {
-                "name": "Databases found", 
-                "rows": [
-                    {"key": str(port), "value": DBMS.get(port)}
-                    for _, port, _ in filter(lambda k: k[2], asyncio.run(run()))
-                ]
-            },
-        ]
-    })
+    return json.dumps(
+        {
+            "nodes": [
+                {
+                    "name": "Databases found",
+                    "rows": [
+                        {"key": str(port), "value": DBMS.get(port)}
+                        for _, port, _ in filter(lambda k: k[2], asyncio.run(run()))
+                    ],
+                },
+            ]
+        }
+    )
 
 
 if __name__ == "__main__":
     import rich
     import sys
+
     rich.print(execute(sys.argv[1]))
