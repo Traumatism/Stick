@@ -84,19 +84,19 @@ This execute function must return a JSON string (use `json.dumps({ ... })` to co
 
 // Results, this is at the top-level
 {
-    "results": [ ... ] // array < Node >
+    "results": [  ] // array < Node >
 }
 
 // Node, this is at the middle-level
 {
-    "name": ..., // String
-    "rows": [ ... ], // array < Row >
+    "name": "...", // String
+    "rows": [  ], // array < Row >
 }
 
 // Row, this is at the lowest level
 {
-    "key": ..., // String
-    "value": ..., // String
+    "key": "...", // String
+    "value": "...", // String
 }
 
 ```
