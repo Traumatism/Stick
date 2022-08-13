@@ -4,7 +4,7 @@ An OSINT tool similar to [Squiz](https://github.com/traumatism/squiz) but in... 
 
 Yes... the cute crab seduced me... but I am not quitting Python at all (at least now ^^): indeed, Stick uses Python 3 as a scripting language to write modules!
 
-![](./assets/mindmap.png)
+![](./assets/mindmap-b.png)
 
 ## Usage
 
