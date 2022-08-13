@@ -1,20 +1,21 @@
 #[macro_export]
 macro_rules! print_banner {
     () => {
+        use ansi_term::Color;
         println!(
-            "{}",
             r"
-
  .osintb.  
 ug-b  ount 
 yrec.      
- 'onsca.     stick v1.0.0
+ 'onsca.     {}
     'nnin.   
-      'gin   https://traumatism.github.io
-fose  csec   https://toast.移动
+      'gin   {}
+fose  csec   {}
  'urity?'
-
-        "
+            ",
+            Color::Red.bold().paint("stick v1.0.0"),
+            Color::Green.bold().paint("https://traumatism.github.io"),
+            Color::Green.bold().paint("https://toast.移动")
         )
     };
 }
