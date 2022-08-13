@@ -62,5 +62,41 @@ The `to_json` method is necessary for the bridge between Rust and Python, edit i
             "desc": self.desc,
             "file_path": "".join(__file__.split(".py")[:-1])
         })
+```
+
+### Execute function
+
+Your module code will go in the `execute` function which takes a string as an argument. This string contains the target provided by the user.
+
+Note: this function is not a method of the `ModuleInfos` class.
+
+```python
+def execute(target: str):
+    ...
+```
+
+This execute function must return a JSON string (use `json.dumps({ ... })` to correctly encode a JSON as string)
+
+### Results structure
+
+
+```json
+
+// Results, this is at the top-level
+{
+    "results": [ ... ] // array < Node >
+}
+
+// Node, this is at the middle-level
+{
+    "name": ..., // String
+    "rows": [ ... ], // array < Row >
+}
+
+// Row, this is at the lowest level
+{
+    "key": ..., // String
+    "value": ..., // String
+}
 
 ```
