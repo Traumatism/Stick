@@ -23,18 +23,30 @@ class ModuleInfos:
 
 def execute(value: str):
 
-    answers = []
+    answers_a = []
+    answers_mx = []
 
     with contextlib.suppress(Exception):
-        answers = dns.resolver.resolve(value, 'A')
+        answers_a = dns.resolver.resolve(value, 'A')
+
+    with contextlib.suppress(Exception):
+        answers_mx = dns.resolver.resolve(value, 'MX')
+
 
     return json.dumps({
         "nodes": [
             {
-                "name": "DNS resolutions", 
+                "name": "DNS resolutions (A)", 
                 "rows": [
                     {"key": str(i), "value": str(r)}
-                    for i, r in enumerate(answers)
+                    for i, r in enumerate(answers_a)
+                ]
+            },
+            {
+                "name": "DNS resolutions (MX)", 
+                "rows": [
+                    {"key": str(i), "value": str(r)}
+                    for i, r in enumerate(answers_a)
                 ]
             },
         ]

@@ -1,8 +1,9 @@
 {
     "modules": [
-        "modules/db_portscan",
         "modules/ipinfo",
-        "modules/dns_resolve",
-        "modules/certificates"
+        "modules/db_portscan",
+        "modules/certificates_subdomains",
+        "modules/pgp_pks_emails",
+        "modules/dns_resolve"
     ]
 }

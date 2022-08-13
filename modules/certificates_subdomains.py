@@ -4,7 +4,7 @@ import re
 
 class ModuleInfos:
 
-    name = "certificates"
+    name = "certificates_subdomains"
     target_types = ["domain"]
     author = "toast <toast@mailfence.com>"
     desc = "Check crt.sh for known SSL certificates and extract subdomains"

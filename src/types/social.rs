@@ -26,7 +26,7 @@ impl Type for Social {
             return false;
         }
 
-        if !SUPPORTED.contains(&target.split("@").collect::<Vec<&str>>()[0]) {
+        if !SUPPORTED.contains(&target.split("@").collect::<Vec<&str>>()[1]) {
             return false;
         }
 

@@ -36,6 +36,8 @@ Warning: some of the modules might be sending direct requests to the target if i
 
 `./stick https://1.1.1.1:80`
 
+`./stick t0x00ast@twitter`
+
 ## Create a module
 
 `python3 create_module.py <name>` will create a new Python file in `modules/` and register your module to `modules.json`.
