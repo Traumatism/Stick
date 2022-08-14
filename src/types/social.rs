@@ -2,7 +2,7 @@ use crate::common::t_type::Type;
 
 pub struct Social {}
 
-const SUPPORTED: [&str; 7] = [
+const SUPPORTED: [&str; 8] = [
     "twitter",
     "instagram",
     "github",

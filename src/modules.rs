@@ -30,12 +30,12 @@ class ModuleInfos:
     target_types = {:?}
 
     def to_json(self) -> str:
-        return json.dumps({
+        return json.dumps({{
             'name': self.name,
             'desc': self.desc,
             'author': self.author,
             'target_types': self.target_types
-        })
+        }})
 
 
 def execute(target: str):
