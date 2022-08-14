@@ -10,6 +10,7 @@ const SUPPORTED: [&str; 7] = [
     "tiktok",
     "pornhub",
     "discord_id",
+    "discord_token",
 ];
 
 impl Type for Social {

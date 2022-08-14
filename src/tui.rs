@@ -4,11 +4,11 @@ macro_rules! print_banner {
         use ansi_term::Color;
         println!(
             r"
- .osintb.  
-ug-b  ount 
-yrec.      
+ .osintb.
+ug-b  ount
+yrec.
  'onsca.     {}
-    'nnin.   
+    'nnin.
       'gin   {}
 fose  csec   {}
  'urity?'

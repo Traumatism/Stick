@@ -17,8 +17,37 @@ pub struct Module {
 }
 
 impl Module {
+    /// Create an empty module
     pub fn create(&self, name: &str, desc: &str, author: &str, target_types: Vec<String>) {
-        
+        let code = format!(r"
+import json
+
+
+class ModuleInfos:
+    name = '{}'
+    desc = '{}'
+    author = '{}'
+    target_types = {:?}
+
+    def to_json(self) -> str:
+        return json.dumps({
+            'name': self.name,
+            'desc': self.desc,
+            'author': self.author,
+            'target_types': self.target_types
+        })
+
+
+def execute(target: str):
+    ...
+
+
+if __name__ == '__main__':
+    import sys
+    execute(sys.argv[1])
+
+        ", name, desc, author, target_types);
+
     }
 
     /// Run the module
