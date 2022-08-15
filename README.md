@@ -16,6 +16,8 @@ Some modules are re-written from [sn0int](https://sn0int.com).
 
 1. build it from the source code and move the binary to our current location.
 
+_Compilation errors might happend due to Pyo3 stuff. Feel free to open an issue!_
+
 `cargo build && mv target/debug/stick .`
 
 2. if it's not present, create the modules folder.
