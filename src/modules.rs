@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 use crate::{error, results::Results};
 pub(crate) use pyo3::{
     prelude::{PyModule, PyResult, Python},
