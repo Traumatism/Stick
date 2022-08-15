@@ -35,7 +35,7 @@ macro_rules! info {
 #[macro_export]
 macro_rules! ok {
     ($content:expr) => {
-        use ansi_term::Color::{Green, White};
+        use ansi_term::Color::Green;
         println!(
             "{} {}",
             Green.bold().paint("[+]"),

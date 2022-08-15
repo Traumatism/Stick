@@ -30,17 +30,17 @@ _Compilation errors might happen due to Pyo3 stuff. Feel free to open an issue!_
 
 3. run stick on the target of your choice, stick will detect what you wanna do automatically
 
-`./stick 1.1.1.1`
+```./stick 1.1.1.1```
 
-`./stick domain.tld`
+```./stick domain.tld```
 
-`./stick user@domain.tld`
+```./stick user@domain.tld```
 
-`./stick 1.1.1.1:80`
+```./stick 1.1.1.1:80```
 
-`./stick https://1.1.1.1:80`
+```./stick https://1.1.1.1:80```
 
-`./stick t0x00ast@twitter`
+```./stick t0x00ast@twitter```
 
 ## Create a module
 

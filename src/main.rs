@@ -47,5 +47,7 @@ async fn main() -> Result<()> {
             .for_each(|module| module.execute(&target));
     }
 
+    ok!("done!");
+
     Ok(())
 }
