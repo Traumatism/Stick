@@ -17,9 +17,9 @@ pub struct Module {
 }
 
 impl Module {
-    pub fn create(&self, name: &str, desc: &str, author: &str, target_types: Vec<String>) {
-        
-    }
+    #[allow(dead_code)]
+    #[allow(unused_variables)]
+    pub fn create(&self, name: &str, desc: &str, author: &str, target_types: Vec<String>) {}
 
     /// Run the module
     pub fn execute(&self, target: &str) {
