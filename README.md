@@ -4,7 +4,7 @@ An OSINT tool similar to [Squiz](https://github.com/traumatism/squiz) but in... 
 
 Yes... the cute crab seduced me... but I am not quitting Python at all (at least now ^^): indeed, Stick uses [Python 3](https://python.org/) as a scripting language to write modules!
 
-Since I am a brain-dead kid without any imagination, module suggestions are welcome (open an issue, or tell me directly on Discord: toast~#0001. For other social platforms see [this link](https://traumatism.github.io/).
+Since I am a brain-dead kid without any imagination, module suggestions are welcome (open an issue, or tell me directly on Discord: toast#4321. For other social platforms see [this link](https://traumatism.github.io/).
 
 Warning: some of the modules might be sending direct requests to the target if it's a host, domain, or URL... you MUST have the target's authorization to perform a scan on their system. I am not encouraging anyone to perform illegal scans on any system!
 
