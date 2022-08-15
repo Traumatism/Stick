@@ -2,7 +2,7 @@ use crate::common::t_type::Type;
 
 pub struct Social {}
 
-const SUPPORTED: [&str; 7] = [
+const SUPPORTED: [&str; 8] = [
     "twitter",
     "instagram",
     "github",
@@ -10,6 +10,7 @@ const SUPPORTED: [&str; 7] = [
     "tiktok",
     "pornhub",
     "discord_id",
+    "discord_token",
 ];
 
 impl Type for Social {
