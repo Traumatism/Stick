@@ -4,7 +4,7 @@ mod results;
 mod tui;
 mod types;
 
-use modules::Modules;
+use modules::{Module, Modules};
 use types::match_types;
 
 use clap::Parser;
@@ -38,14 +38,30 @@ async fn main() -> Result<()> {
         .iter()
         .for_each(|t| println!(" - {}", t.hname()));
 
+    println!(""); // add a new line before printing modules content
+
     let modules = Modules::load();
 
+    let mut fmodules: Vec<&Module> = Vec::new();
+
     for t_type in &compatible_types {
-        modules
-            .get_modules_by_type(t_type.rname())
-            .iter()
-            .for_each(|module| module.execute(&target));
+        fmodules.append(&mut modules.get_modules_by_type(t_type.rname()));
     }
+
+    if fmodules.len() == 0 {
+        error!("Found not even one module to run.");
+        return Ok(());
+    }
+
+    info!("Running modules:");
+
+    fmodules
+        .iter()
+        .for_each(|t| println!(" - {} ({})", t.name, t.desc));
+
+    println!(""); // add a new line before printing modules content
+
+    fmodules.iter().for_each(|t| t.execute(&target));
 
     ok!("done!");
 

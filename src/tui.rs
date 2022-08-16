@@ -23,11 +23,10 @@ fose  csec   {}
 #[macro_export]
 macro_rules! info {
     ($content:expr) => {
-        use ansi_term::Color::{Blue, White};
         println!(
             "{} {}",
-            Blue.bold().paint("[~]"),
-            White.bold().paint($content)
+            ansi_term::Color::Blue.bold().paint("[~]"),
+            ansi_term::Color::White.bold().paint($content)
         )
     };
 }
@@ -35,11 +34,10 @@ macro_rules! info {
 #[macro_export]
 macro_rules! ok {
     ($content:expr) => {
-        use ansi_term::Color::Green;
         println!(
             "{} {}",
-            Green.bold().paint("[+]"),
-            White.bold().paint($content)
+            ansi_term::Color::Green.bold().paint("[+]"),
+            ansi_term::Color::White.bold().paint($content)
         )
     };
 }
@@ -47,11 +45,10 @@ macro_rules! ok {
 #[macro_export]
 macro_rules! error {
     ($content:expr) => {
-        use ansi_term::Color::{Red, White};
         println!(
             "{} {}",
-            Red.bold().paint("[-]"),
-            White.bold().paint($content)
+            ansi_term::Color::Red.bold().paint("[-]"),
+            ansi_term::Color::White.bold().paint($content)
         )
     };
 }
