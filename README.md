@@ -6,9 +6,12 @@ Yes... the cute crab seduced me... but I am not quitting Python at all (at least
 
 Since I am a brain-dead kid without any imagination, module suggestions are welcome (open an issue, or tell me directly on Discord: toast#4321. For other social platforms see [this link](https://traumatism.github.io/).
 
-Warning: some of the modules might be sending direct requests to the target if it's a host, domain, or URL... you MUST have the target's authorization to perform a scan on their system. I am not encouraging anyone to perform illegal scans on any system!
+## Things to know: 
+- some of the modules might be sending direct requests to the target if it's a host, domain, or URL... you MUST have the target's authorization to perform a scan on their system. I am not encouraging anyone to perform illegal scans on any system!
 
-Some modules are re-written from [sn0int](https://sn0int.com).
+- some modules are re-written from [sn0int](https://sn0int.com).
+
+- some modules are depending on Python >= 3.10, be sure to have the latest Python version running.
 
 ![](./assets/mindmap-b.png)
 
