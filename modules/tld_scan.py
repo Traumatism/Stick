@@ -2,6 +2,7 @@ import json
 import requests
 import socket
 import threadz
+import sys
 
 
 class ModuleInfos:

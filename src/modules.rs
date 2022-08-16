@@ -126,10 +126,18 @@ impl Modules {
                 let module: Module = serde_json::from_str(&module_infos_json).unwrap();
 
                 Ok(module)
-            })
-            .unwrap();
+            });
 
-            modules.push(module)
+            if module.is_err() {
+                error!(format!(
+                    "Failed to load module: {} ({})",
+                    file_path,
+                    module.err().unwrap()
+                ));
+                continue;
+            }
+
+            modules.push(module.unwrap())
         }
 
         Modules { modules: modules }
