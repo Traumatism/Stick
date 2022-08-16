@@ -1,4 +1,4 @@
-use crate::common::t_type::Type;
+use crate::abc::Type;
 
 pub struct IPAddress {}
 

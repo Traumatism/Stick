@@ -1,11 +1,12 @@
 {
     "modules": [
-        "modules/wbu_subdomains",
-        "modules/tld_scan",
         "modules/db_portscan",
         "modules/pgp_pks_emails",
-        "modules/ipinfo",
+        "modules/github_infos",
         "modules/dns_resolve",
-        "modules/certificates_subdomains"
+        "modules/tld_scan",
+        "modules/ipinfo",
+        "modules/certificates_subdomains",
+        "modules/wbu_subdomains"
     ]
 }

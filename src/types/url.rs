@@ -1,4 +1,4 @@
-use crate::common::t_type::Type;
+use crate::abc::Type;
 
 use super::domain::Domain;
 use super::ip_address::IPAddress;

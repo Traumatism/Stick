@@ -40,7 +40,7 @@ _Compilation errors might happen due to Pyo3 stuff. Feel free to open an issue!_
 
 ```./stick https://1.1.1.1:80```
 
-```./stick t0x00ast@twitter```
+```./stick traumatism@github```
 
 ## Create a module
 

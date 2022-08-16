@@ -5,7 +5,7 @@ mod port;
 mod social;
 mod url;
 
-use crate::common::t_type::Type;
+use crate::abc::Type;
 
 use domain::Domain;
 use email_address::EmailAddress;

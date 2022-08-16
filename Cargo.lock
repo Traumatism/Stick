@@ -419,6 +419,7 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
+ "tablier",
  "tokio",
 ]
 
@@ -438,6 +439,12 @@ dependencies = [
  "quote",
  "unicode-ident",
 ]
+
+[[package]]
+name = "tablier"
+version = "0.1.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6b906b8197403ef52bfccec69ef2a42db820a72cc59e060489f4785802ee4aec"
 
 [[package]]
 name = "target-lexicon"

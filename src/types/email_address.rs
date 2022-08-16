@@ -1,5 +1,5 @@
 use super::Domain;
-use crate::common::t_type::Type;
+use crate::abc::Type;
 
 pub struct EmailAddress {}
 

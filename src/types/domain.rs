@@ -1,5 +1,5 @@
 use super::IPAddress;
-use crate::common::t_type::Type;
+use crate::abc::Type;
 
 pub struct Domain {}
 
