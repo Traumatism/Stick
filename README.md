@@ -32,13 +32,13 @@ _Compilation errors might happen due to Pyo3 stuff. Feel free to open an issue!_
 
 ```./stick 1.1.1.1```
 
-```./stick domain.tld```
+```./stick hypixel.net```
 
-```./stick user@domain.tld```
+```./stick toast@mailfence.com```
 
 ```./stick 1.1.1.1:80```
 
-```./stick https://1.1.1.1:80```
+```./stick https://hypixel.net/```
 
 ```./stick traumatism@github```
 
@@ -90,7 +90,7 @@ def execute(target: str):
     ...
 ```
 
-This execute function must return a JSON string (use `json.dumps({ ... })` to correctly encode a JSON as string)
+This execute function must return a JSON string (use `json.dumps( { ... } )` to correctly encode a JSON as string)
 
 ### Results structure
 

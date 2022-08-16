@@ -27,16 +27,14 @@ def execute(value: str):
         f"https://keyserver.ubuntu.com/pks/lookup?search={value}&op=index"
     )
 
-    emails = re.findall(r"&lt;(.*)&gt;<\/span>", response.text)
+    emails = set(re.compile(r"&lt;(.*)&gt;<\/span>").findall(response.text))
 
     return json.dumps(
         {
             "nodes": [
                 {
                     "name": "Emails",
-                    "rows": [
-                        {"key": str(i), "value": e} for i, e in enumerate(set(emails))
-                    ],
+                    "rows": [{"key": str(i), "value": e} for i, e in enumerate(emails)],
                 },
             ]
         }

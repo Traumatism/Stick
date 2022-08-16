@@ -1,5 +1,6 @@
 import json
-import asyncio
+import socket
+import threadz
 import typing
 
 DBMS = {
@@ -31,30 +32,31 @@ class ModuleInfos:
 
 
 def execute(value: str):
-    async def scan(host: str, port: int) -> typing.Tuple[str, int, bool]:
+    def scan(host: str, port: int) -> typing.Tuple[int, bool]:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.settimeout(3)
         try:
-            await asyncio.wait_for(asyncio.open_connection(host, port), 3)
+            s.connect((host, port))
         except Exception:
-            return (host, port, False)
+            return (port, False)
 
-        return (host, port, True)
+        return (port, True)
 
-    async def run() -> typing.List[typing.Tuple[str, int, bool]]:
-
-        results = asyncio.gather(
-            *[asyncio.create_task(scan(value, port)) for port in DBMS.keys()]
-        )
-
-        return await results
+    results = threadz.gather(
+        [threadz.create_task(scan, args=(value, port)) for port in DBMS.keys()],
+        concurrency=5,
+    )
 
     return json.dumps(
         {
             "nodes": [
                 {
-                    "name": "Databases found",
+                    "name": "Databases servers found",
                     "rows": [
-                        {"key": str(port), "value": DBMS.get(port)}
-                        for _, port, _ in filter(lambda k: k[2], asyncio.run(run()))
+                        {"key": str(i), "value": f"{d[0]} ({DBMS.get(d[0])})"}
+                        for i, d in enumerate(
+                            filter(lambda r: r[1] == True, list(results.values()))
+                        )
                     ],
                 },
             ]
