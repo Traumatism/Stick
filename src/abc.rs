@@ -1,3 +1,4 @@
+/// Trait for all target types
 pub trait Type {
     /// Name that can be read by humans, for example: IP address
     fn hname(&self) -> &'static str;

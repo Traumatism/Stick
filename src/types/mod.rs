@@ -1,18 +1,26 @@
+mod btc_address;
 mod domain;
 mod email_address;
+mod eth_address;
 mod ip_address;
+mod phone;
 mod port;
 mod social;
 mod url;
+mod uuid;
 
 use crate::abc::Type;
 
+use btc_address::BtcAddress;
 use domain::Domain;
 use email_address::EmailAddress;
+use eth_address::EthAddress;
 use ip_address::IPAddress;
+use phone::Phone;
 use port::Port;
 use social::Social;
 use url::Url;
+use uuid::Uuid;
 
 pub fn get_types() -> Vec<&'static dyn Type> {
     let types: Vec<&'static dyn Type> = vec![
@@ -22,6 +30,10 @@ pub fn get_types() -> Vec<&'static dyn Type> {
         &Port {},
         &Url {},
         &Social {},
+        &Uuid {},
+        &Phone {},
+        &EthAddress {},
+        &BtcAddress {},
     ];
     types
 }
