@@ -1,13 +1,13 @@
-use serde_derive::{Deserialize, Serialize};
+use serde_derive::Deserialize;
 use serde_json;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Deserialize)]
 struct Row {
     key: String,
     value: String,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Deserialize)]
 struct Node {
     name: String,
     rows: Vec<Row>,
@@ -33,7 +33,7 @@ struct Node {
 ///         No results.
 ///
 ///
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Deserialize)]
 pub struct Results {
     nodes: Vec<Node>,
 }
