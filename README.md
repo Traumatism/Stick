@@ -21,7 +21,7 @@ Since I am a brain-dead kid without any imagination, module suggestions are welc
 
 _Compilation errors might happen due to Pyo3 stuff. Feel free to open an issue!_
 
-`cargo build && mv target/debug/stick .`
+`make build`
 
 2. if it's not present, create the modules folder.
 

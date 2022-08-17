@@ -1,3 +1,5 @@
+use regex::Regex;
+
 use crate::abc::Type;
 
 pub struct EthAddress {}
@@ -12,6 +14,6 @@ impl Type for EthAddress {
     }
 
     fn validate(&self, target: String) -> bool {
-        false // Not implemented yet
+        Regex::new(r"0x[0-9a-f]{40}").unwrap().is_match(&target)
     }
 }
