@@ -1,8 +1,9 @@
 import json
 import requests
 import socket
-import threadz
 import sys
+
+from stickpy.threading import gather
 
 
 class ModuleInfos:
@@ -46,8 +47,8 @@ def execute(value: str):
 
     domain_name = value.split(".")[-2]
 
-    results = threadz.gather(
-        [threadz.create_task(scan, args=(domain_name, tld)) for tld in tld_list],
+    results = gather(
+        [(scan, (domain_name, tld), {}) for tld in tld_list],
         concurrency=75,
     )
 

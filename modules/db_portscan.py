@@ -1,7 +1,8 @@
 import json
 import socket
-import threadz
 import typing
+
+from stickpy.threading import gather
 
 DBMS = {
     3306: "MySQL",
@@ -42,8 +43,8 @@ def execute(value: str):
 
         return (port, True)
 
-    results = threadz.gather(
-        [threadz.create_task(scan, args=(value, port)) for port in DBMS.keys()],
+    results = gather(
+        [(scan, (value, port), {}) for port in DBMS.keys()],
         concurrency=5,
     )
 
