@@ -1,5 +1,6 @@
 import json
-import requests
+
+from stickpy.http import fetch
 
 
 class ModuleInfos:
@@ -22,7 +23,7 @@ class ModuleInfos:
 
 
 def execute(value: str):
-    response = requests.get(f"https://api.github.com/users/{value.split('@')[0]}")
+    response = fetch(f"https://api.github.com/users/{value.split('@')[0]}")
 
     if response.status_code == 404:
         return json.dumps(

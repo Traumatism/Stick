@@ -47,7 +47,7 @@ def execute(value: str):
                     "name": "DNS resolutions (MX)",
                     "rows": [
                         {"key": str(i), "value": str(r)}
-                        for i, r in enumerate(answers_a)
+                        for i, r in enumerate(answers_mx)
                     ],
                 },
             ]

@@ -1,6 +1,8 @@
 import requests
 import json
 
+from stickpy.http import fetch
+
 
 class ModuleInfos:
 
@@ -22,7 +24,8 @@ class ModuleInfos:
 
 
 def execute(value: str):
-    json_data = requests.get(f"https://ipinfo.io/{value}/json").json()
+    json_data = fetch(f"https://ipinfo.io/{value}/json").json()
+
     return json.dumps(
         {
             "nodes": [

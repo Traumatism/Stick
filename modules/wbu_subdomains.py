@@ -1,6 +1,7 @@
-import requests
 import json
 import re
+
+from stickpy.http import fetch
 
 
 class ModuleInfos:
@@ -23,7 +24,7 @@ class ModuleInfos:
 
 
 def execute(value: str):
-    response = requests.get(
+    response = fetch(
         f"https://web.archive.org/cdx/search/cdx?url=*.{value}/*&output=json&collapse=urlkey"
     ).text
 

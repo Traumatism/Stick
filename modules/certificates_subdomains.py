@@ -1,6 +1,7 @@
-import requests
 import json
 import re
+
+from stickpy.http import fetch
 
 
 class ModuleInfos:
@@ -23,7 +24,7 @@ class ModuleInfos:
 
 
 def execute(value: str):
-    json_data = requests.get(f"https://crt.sh/?dNSName={value}&output=json").json()
+    json_data = fetch(f"https://crt.sh/?dNSName={value}&output=json").json()
 
     data = " ".join(
         map(lambda o: " ".join((o["common_name"], o["name_value"])), json_data)

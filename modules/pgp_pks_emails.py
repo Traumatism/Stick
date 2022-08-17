@@ -1,6 +1,7 @@
 import re
 import json
-import requests
+
+from stickpy.http import fetch
 
 
 class ModuleInfos:
@@ -23,9 +24,7 @@ class ModuleInfos:
 
 
 def execute(value: str):
-    response = requests.get(
-        f"https://keyserver.ubuntu.com/pks/lookup?search={value}&op=index"
-    )
+    response = fetch(f"https://keyserver.ubuntu.com/pks/lookup?search={value}&op=index")
 
     emails = set(re.compile(r"&lt;(.*)&gt;<\/span>").findall(response.text))
 

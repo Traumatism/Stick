@@ -4,6 +4,7 @@ import socket
 import sys
 
 from stickpy.threading import gather
+from stickpy.http import fetch
 
 
 class ModuleInfos:
@@ -38,7 +39,7 @@ def execute(value: str):
             lambda l: l.lower(),
             filter(
                 lambda l: not l.startswith("#"),
-                requests.get(
+                fetch(
                     "https://data.iana.org/TLD/tlds-alpha-by-domain.txt"
                 ).text.splitlines(),
             ),

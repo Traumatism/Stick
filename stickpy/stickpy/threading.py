@@ -1,6 +1,8 @@
 import threading
 import functools
 
+__all__ = ["threadify", "gather"]
+
 
 def threadify(func):
     """Decorator to add threading to a function."""
