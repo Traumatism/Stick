@@ -2,6 +2,7 @@ import json
 import re
 
 from stickpy.http import fetch
+from stickpy.regex import SUBDOMAIN_REGEX
 
 
 class ModuleInfos:
@@ -30,7 +31,7 @@ def execute(value: str):
         map(lambda o: " ".join((o["common_name"], o["name_value"])), json_data)
     )
 
-    subdomains = re.compile(r"([a-z0-9\-.]{1,}\.%s)" % value).findall(data)
+    subdomains = re.compile(SUBDOMAIN_REGEX % value).findall(data)
 
     return json.dumps(
         {

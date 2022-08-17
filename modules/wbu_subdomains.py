@@ -2,6 +2,7 @@ import json
 import re
 
 from stickpy.http import fetch
+from stickpy.regex import SUBDOMAIN_REGEX
 
 
 class ModuleInfos:
@@ -28,7 +29,7 @@ def execute(value: str):
         f"https://web.archive.org/cdx/search/cdx?url=*.{value}/*&output=json&collapse=urlkey"
     ).text
 
-    subdomains = re.compile(r"([a-z0-9\-.]{1,}\.%s)" % value).findall(response)
+    subdomains = re.compile(SUBDOMAIN_REGEX % value).findall(response)
 
     return json.dumps(
         {

@@ -1,3 +1,3 @@
-from . import http, threading
+from . import http, threading, regex
 
-__all__ = ("http", "threading")
+__all__ = ("http", "threading", "regex")
