@@ -6,10 +6,12 @@ import json
 
 CODE = """
 import json
+import stickpy
+
 
 class ModuleInfos:
 
-    name = ""
+    name = "%s"
     target_types = ["ip_address"]
     author = "toast <toast@mailfence.com>"
     desc = ""
@@ -28,7 +30,7 @@ def execute(value: str):
     return json.dumps({
         "nodes": [
             {
-                "name": "node_name", 
+                "name": "node_name",
                 "rows": [
                     {"key": "name", "value": "xxx"},
                     {"key": "name", "value": "xxx"}
@@ -39,8 +41,12 @@ def execute(value: str):
 """
 
 def create(file_name):
+    print("[~] creating module")
+
     with open(f"modules/{file_name}.py", "w") as f:
-        f.write(CODE)
+        f.write(CODE % file_name)
+
+    print(" + written code")
 
     with open("modules.json", "r+") as f:
         json_data = json.load(f)
@@ -50,13 +56,16 @@ def create(file_name):
     with open("modules.json", "w") as f:
         json.dump(json_data, f, indent=4)
 
+    print(" + added to module registery")
 
 if len(sys.argv) < 2:
-    print("You need to provide the file name (for example: hello)")
+    print("[+] You need to provide the file name (for example: hello)")
     sys.exit(1)
 
 if not os.path.exists("modules"):
-    os.mkdir("modules")
-
+    os.mkdir("modules/")
+    print("[+] created 'modules/' dir")
 
 create(sys.argv[1])
+print("[+] created module")
+
